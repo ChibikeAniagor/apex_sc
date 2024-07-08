@@ -1,8 +1,10 @@
 import 'package:apex_sc/screens/onboarding_scree.dart';
+import 'package:apex_sc/screens/otp_screen.dart';
 import 'package:apex_sc/screens/password_recovery.dart';
 import 'package:apex_sc/screens/sign_in.dart';
 import 'package:apex_sc/screens/sign_up.dart';
 import 'package:apex_sc/screens/splash_screen.dart';
+import 'package:apex_sc/screens/verify_your_identity.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,13 +33,13 @@ class MainApp extends StatelessWidget {
         // // Sign Up Screen
         "Signup": (context) => const SignUp(),
         // OTP Authentication Screen
-        //   "Otp": (context)=> const OtpScreen(),
-        // // Id Screen (Identification Screen)
-        //  "Id": (context)=> const IdScreen(),
+        "Otp": (context) => const OtpScreen(),
+        // Id Screen (Identification Screen)
+        "Verify Id": (context) => const VerifyYourIdentity(),
         //  // Create Pin Screen
         //   "Create pin": (context)=> const SigninScreen(),
       },
-      home: const OnboardingScreen(),
+      home: const OtpScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

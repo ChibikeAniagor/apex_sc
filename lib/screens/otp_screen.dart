@@ -30,7 +30,7 @@ class _OtpScreenState extends State<OtpScreen> {
         appBar: AppBar(
           leading: GestureDetector(
               onTap: () {},
-              child: Image.asset('assets/images/backarrow_icon.png')),
+              child: Image.asset('assets/icons/backarrow_icon.png')),
         ),
         backgroundColor: primaryBackgroundColor,
         body: Padding(
@@ -109,12 +109,15 @@ class _OtpScreenState extends State<OtpScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              Button(
-                text: 'Confirm',
-                navigatorDestination: OnboardingScreen(),
-                buttonWidth: 327,
-                color:
-                    text.length == 5 ? buttonActiveColor : buttonInactiveColor,
+              Center(
+                child: Button(
+                  text: 'Confirm',
+                  navigatorDestination: OnboardingScreen(),
+                  buttonWidth: 327,
+                  color: text.length == 5
+                      ? buttonActiveColor
+                      : buttonInactiveColor,
+                ),
               ),
               const SizedBox(
                 height: 20,
