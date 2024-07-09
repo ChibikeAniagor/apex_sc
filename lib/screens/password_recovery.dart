@@ -1,4 +1,5 @@
 import 'package:apex_sc/screens/otp_screen.dart';
+import 'package:apex_sc/screens/reset_passwrd.dart';
 import 'package:apex_sc/utils/color_utils.dart';
 import 'package:apex_sc/widgets/button.dart';
 import 'package:flutter/material.dart';
@@ -133,7 +134,7 @@ class _PasswordRecoveryState extends State<PasswordRecovery> {
                   child: Button(
                       buttonWidth: 327,
                       text: 'Send Me email',
-                      navigatorDestination: const OtpScreen(),
+                      navigatorDestination: const ResetPasswrd(),
                       color: isTextFieldEmpty
                           ? buttonInactiveColor
                           : buttonActiveColor),

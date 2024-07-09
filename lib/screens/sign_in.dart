@@ -1,6 +1,10 @@
+import 'package:apex_sc/screens/get_started.dart';
 import 'package:apex_sc/screens/otp_screen.dart';
+import 'package:apex_sc/screens/password_recovery.dart';
+import 'package:apex_sc/screens/sign_up.dart';
 import 'package:apex_sc/utils/color_utils.dart';
 import 'package:apex_sc/widgets/button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -202,17 +206,26 @@ class _SignInState extends State<SignIn> {
                     ),
                   ),
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 30),
-                      child: Text(
-                        'Forgot Password?',
-                        style: TextStyle(
-                            color: blueHighlightedTextColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600),
+                      padding: const EdgeInsets.only(left: 30),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const PasswordRecovery()),
+                          );
+                        },
+                        child: const Text(
+                          'Forgot Password?',
+                          style: TextStyle(
+                              color: blueHighlightedTextColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
                     ),
                   ],
@@ -223,7 +236,7 @@ class _SignInState extends State<SignIn> {
                     child: Button(
                         buttonWidth: 327,
                         text: 'Sign In',
-                        navigatorDestination: const OtpScreen(),
+                        navigatorDestination: const GetStarted(),
                         color: isTextFieldEmpty
                             ? buttonInactiveColor
                             : buttonActiveColor),
@@ -295,7 +308,7 @@ class _SignInState extends State<SignIn> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  "Already have an account ?",
+                  "Don't have an account ?",
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
@@ -303,9 +316,14 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SignUp()),
+                    );
+                  },
                   child: const Text(
-                    "Sign In",
+                    "Sign up",
                     style: TextStyle(
                       color: blueHighlightedTextColor,
                       fontWeight: FontWeight.w500,

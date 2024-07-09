@@ -1,48 +1,20 @@
-import 'dart:async'; // Add this import
-
-import 'package:apex_sc/screens/identity_screen.dart';
 import 'package:apex_sc/screens/onboarding_scree.dart';
+import 'package:apex_sc/screens/sign_in.dart';
 import 'package:apex_sc/utils/color_utils.dart';
 import 'package:apex_sc/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:numeric_keyboard/numeric_keyboard.dart';
 import 'package:pinput/pinput.dart';
 
-class OtpScreen extends StatefulWidget {
-  const OtpScreen({super.key});
+class CreatePin extends StatefulWidget {
+  const CreatePin({super.key});
 
   @override
-  State<OtpScreen> createState() => _OtpScreenState();
+  State<CreatePin> createState() => _CreatePinState();
 }
 
-class _OtpScreenState extends State<OtpScreen> {
+class _CreatePinState extends State<CreatePin> {
   String text = "";
-  int _seconds = 30; // Add this variable
-  Timer? _timer; // Add this variable
-
-  @override
-  void initState() {
-    super.initState();
-    _startTimer(); // Start the timer when the screen is initialized
-  }
-
-  @override
-  void dispose() {
-    _timer?.cancel(); // Cancel the timer when the screen is disposed
-    super.dispose();
-  }
-
-  void _startTimer() {
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      if (_seconds > 0) {
-        setState(() {
-          _seconds--;
-        });
-      } else {
-        timer.cancel();
-      }
-    });
-  }
 
   void _onKeyboardTap(String value) {
     setState(() {
@@ -57,7 +29,7 @@ class _OtpScreenState extends State<OtpScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: primaryBackgroundColor,
+          backgroundColor: Colors.white,
           leading: GestureDetector(
               onTap: () {},
               child: Image.asset('assets/icons/backarrow_icon.png')),
@@ -69,7 +41,7 @@ class _OtpScreenState extends State<OtpScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'Verify It\'s you',
+                'Set Your PIN Code',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 16),
@@ -77,26 +49,19 @@ class _OtpScreenState extends State<OtpScreen> {
                 TextSpan(
                   children: [
                     TextSpan(
-                      text: 'we\'ve sent a code to ',
+                      text: 'We use state-of-the-art security measures to ',
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                           color: Color(0xFF6B7280)),
                     ),
                     TextSpan(
-                      text: '(****@mail.com)',
+                      text: 'protect your information at all times',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
-                        color: Colors.black,
+                        color: Color(0xFF6B7280),
                       ),
-                    ),
-                    TextSpan(
-                      text: '. Enter it here to verify your identity',
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xFF6B7280)),
                     ),
                   ],
                 ),
@@ -116,33 +81,11 @@ class _OtpScreenState extends State<OtpScreen> {
                 ),
               ),
               const SizedBox(height: 36),
-              Center(
-                child: Text.rich(
-                  TextSpan(
-                    children: [
-                      const TextSpan(
-                        text: 'Resend code in ',
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
-                            color: Color(0xFF727272)),
-                      ),
-                      TextSpan(
-                        text: '$_seconds Secs',
-                        style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
-                            color: Color(0xFF727272)),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
               const SizedBox(height: 20),
               Center(
                 child: Button(
                   text: 'Confirm',
-                  navigatorDestination: const IdentityScreen(),
+                  navigatorDestination: const SignIn(),
                   buttonWidth: 327,
                   color: text.length == 5
                       ? buttonActiveColor
@@ -180,5 +123,6 @@ class _OtpScreenState extends State<OtpScreen> {
         ),
       ),
     );
+    ;
   }
 }

@@ -17,56 +17,32 @@ class _OnboardingScreen1State extends State<OnboardingScreen1> {
       body: Column(
         children: [
           Container(
-            child: Stack(
-              children: [
-                Container(
-                    alignment: Alignment(0, 2.9),
-                    child: Image.asset(
-                      "assets/images/card_phone.jpg",
-                      height: 800,
-                      width: 800,
-                    )),
-                Container(
-                  alignment: Alignment(0, -0.3),
-                  child: Image.asset(
-                    "assets/images/actual_stack1.png",
-                    height: 400,
-                    width: 400,
-                    repeat: ImageRepeat.noRepeat,
-                  ),
-                ),
-                Container(
-                  alignment: Alignment(0, 0.4),
-                  child: const Text(
-                    "Finance app the safest \n     and most trusted",
-                    style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 34),
-                  ),
-                ),
-                Container(
-                  alignment: Alignment(0, 0.6),
-                  child: Text(
-                    "Your finance work starts here. We're here to help \n       "
-                    "you "
-                    "track and deal with speeding up your\n "
-                    "                               "
-                    "transactions.",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 18),
-                  ),
-                ),
-              ],
+            padding: const EdgeInsets.only(top: 150),
+            alignment: Alignment.center,
+            child: Image.asset(
+              "assets/images/onboarding1.png",
+              height: 300,
+              cacheWidth: 400,
             ),
           ),
-          const Button(
-              text: 'Get Started',
-              navigatorDestination: SignUp(),
-              color: buttonActiveColor),
+          const SizedBox(
+            height: 30,
+          ),
+          const Text(
+            "Finanace App the safest \n      and most trusted",
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.w800, fontSize: 34),
+          ),
+          const Padding(
+            padding: EdgeInsets.all(13.0),
+            child: Text(
+              "Your finance work starts here, We're here\n  to help you track and deal with speeding \n  up your transactions ",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 18),
+            ),
+          ),
         ],
       ),
       backgroundColor: Colors.white,

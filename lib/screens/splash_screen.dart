@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   route() {
-    Navigator.pushReplacementNamed(context, "Signin");
+    Navigator.pushReplacementNamed(context, "Onboarding");
   }
 
   @override
@@ -34,16 +34,15 @@ class _SplashScreenState extends State<SplashScreen>
         body: ListView(
           children: [
             Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(
-                  height: 0,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.3),
                 Lottie.asset(
-                  "assets/animations/apex_logo.json",
-                  fit: BoxFit.cover,
+                  "assets/animations/logo.json",
+                  fit: BoxFit.contain,
                   repeat: false,
                 ),
-                Center(child: Image.asset("assets/icons/apex_logo.png")),
+                // Center(child: Image.asset("assets/icons/apex_logo.png")),
               ],
             ),
           ],

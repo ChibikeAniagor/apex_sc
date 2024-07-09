@@ -1,4 +1,5 @@
 import 'package:apex_sc/screens/otp_screen.dart';
+import 'package:apex_sc/screens/sign_in.dart';
 import 'package:apex_sc/utils/color_utils.dart';
 import 'package:apex_sc/widgets/button.dart';
 import 'package:flutter/material.dart';
@@ -52,9 +53,12 @@ class _SignInState extends State<SignUp> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: const Icon(
-                Icons.arrow_back_ios,
-                color: Colors.black38,
+              child: Container(
+                padding: const EdgeInsets.all(8.0), // Increase the touch area
+                child: const Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.black38,
+                ),
               ),
             ),
           ),
@@ -235,7 +239,12 @@ class _SignInState extends State<SignUp> {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SignIn()),
+                    );
+                  },
                   child: const Text(
                     "Sign In",
                     style: TextStyle(

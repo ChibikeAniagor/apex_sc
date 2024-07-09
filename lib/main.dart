@@ -1,6 +1,10 @@
+import 'package:apex_sc/screens/create_pin.dart';
+import 'package:apex_sc/screens/get_started.dart';
+import 'package:apex_sc/screens/identity_screen.dart';
 import 'package:apex_sc/screens/onboarding_scree.dart';
 import 'package:apex_sc/screens/otp_screen.dart';
 import 'package:apex_sc/screens/password_recovery.dart';
+import 'package:apex_sc/screens/reset_passwrd.dart';
 import 'package:apex_sc/screens/sign_in.dart';
 import 'package:apex_sc/screens/sign_up.dart';
 import 'package:apex_sc/screens/splash_screen.dart';
@@ -28,18 +32,22 @@ class MainApp extends StatelessWidget {
         "Signin": (context) => const SignIn(),
         // password recovery Screens
         "Password Recovery": (context) => const PasswordRecovery(),
-        //   "Verifiy Identity": (context)=> const VerfifyIdentity(),
-        //   "Reset Password": (context)=> const ResetPassword(),
-        // // Sign Up Screen
+        // reset your password
+        "Reset Password": (context) => const ResetPasswrd(),
+        // Sign Up Screen
         "Signup": (context) => const SignUp(),
         // OTP Authentication Screen
         "Otp": (context) => const OtpScreen(),
         // Id Screen (Identification Screen)
         "Verify Id": (context) => const VerifyYourIdentity(),
-        //  // Create Pin Screen
-        //   "Create pin": (context)=> const SigninScreen(),
+        //Reset your Password
+        "Identity Screen": (context) => const IdentityScreen(),
+        // Create Pin Screen
+        "Create pin": (context) => const CreatePin(),
+        //confirmation screen
+        "Confirmation Screen": (context) => const GetStarted(),
       },
-      home: const OtpScreen(),
+      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
