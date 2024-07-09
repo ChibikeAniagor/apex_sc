@@ -144,9 +144,9 @@ class _IdentityScreenState extends State<IdentityScreen> {
                             ),
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          enabledBorder: OutlineInputBorder(
+                          focusedBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
-                              color: Colors.grey,
+                              color: blueHighlightedTextColor,
                             ),
                             borderRadius: BorderRadius.circular(10.5),
                           ),
@@ -192,9 +192,9 @@ class _IdentityScreenState extends State<IdentityScreen> {
                             ),
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          enabledBorder: OutlineInputBorder(
+                          focusedBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
-                              color: Colors.grey,
+                              color: blueHighlightedTextColor,
                             ),
                             borderRadius: BorderRadius.circular(10.5),
                           ),
@@ -276,9 +276,9 @@ class _IdentityScreenState extends State<IdentityScreen> {
                             ),
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          enabledBorder: OutlineInputBorder(
+                          focusedBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
-                              color: Colors.grey,
+                              color: blueHighlightedTextColor,
                             ),
                             borderRadius: BorderRadius.circular(10.5),
                           ),
@@ -290,6 +290,13 @@ class _IdentityScreenState extends State<IdentityScreen> {
                     height: 10,
                   ),
                   Button(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CreatePin()),
+                        );
+                      },
                       text: 'Continue',
                       navigatorDestination: const CreatePin(),
                       color: isTextFieldEmpty

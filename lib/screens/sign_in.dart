@@ -1,3 +1,4 @@
+import 'package:apex_sc/providers/auth_provider.dart';
 import 'package:apex_sc/screens/get_started.dart';
 import 'package:apex_sc/screens/otp_screen.dart';
 import 'package:apex_sc/screens/password_recovery.dart';
@@ -6,6 +7,7 @@ import 'package:apex_sc/utils/color_utils.dart';
 import 'package:apex_sc/widgets/button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -73,7 +75,7 @@ class _SignInState extends State<SignIn> {
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 50, left: 10, right: 18),
+                  padding: const EdgeInsets.only(top: 35, left: 10, right: 18),
                   child: Row(
                     children: [
                       RichText(
@@ -137,9 +139,9 @@ class _SignInState extends State<SignIn> {
                           ),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        enabledBorder: OutlineInputBorder(
+                        focusedBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
-                            color: Colors.grey,
+                            color: blueHighlightedTextColor,
                           ),
                           borderRadius: BorderRadius.circular(10.5),
                         ),
@@ -196,9 +198,9 @@ class _SignInState extends State<SignIn> {
                           ),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        enabledBorder: OutlineInputBorder(
+                        focusedBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
-                            color: Colors.grey,
+                            color: blueHighlightedTextColor,
                           ),
                           borderRadius: BorderRadius.circular(10.5),
                         ),
@@ -236,6 +238,13 @@ class _SignInState extends State<SignIn> {
                     child: Button(
                         buttonWidth: 327,
                         text: 'Sign In',
+                        onPressed: () {
+                          context.read<AuthProvider>().signIn(
+                              email:
+                                  creAccEmailTextEditingController.text.trim(),
+                              password:
+                                  creAccPaswdTextEditingController.text.trim());
+                        },
                         navigatorDestination: const GetStarted(),
                         color: isTextFieldEmpty
                             ? buttonInactiveColor
@@ -243,7 +252,7 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 const Padding(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(5),
                   child: Text(
                     "OR",
                     style: TextStyle(
@@ -260,8 +269,8 @@ class _SignInState extends State<SignIn> {
                       padding: const EdgeInsets.all(10),
                       child: Container(
                         alignment: Alignment.centerLeft,
-                        width: 170,
-                        height: 60,
+                        width: 150,
+                        height: 50,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                           border: Border.all(
@@ -272,8 +281,8 @@ class _SignInState extends State<SignIn> {
                         child: Center(
                           child: Image.asset(
                             "assets/icons/google_icon.jpg",
-                            height: 27,
-                            width: 27,
+                            height: 15,
+                            width: 20,
                           ),
                         ),
                       ),
@@ -282,8 +291,8 @@ class _SignInState extends State<SignIn> {
                       padding: const EdgeInsets.all(10),
                       child: Container(
                         alignment: Alignment.centerLeft,
-                        width: 170,
-                        height: 60,
+                        width: 150,
+                        height: 50,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                           border: Border.all(
@@ -294,8 +303,8 @@ class _SignInState extends State<SignIn> {
                         child: Center(
                           child: Image.asset(
                             "assets/icons/apple_icon.jpg",
-                            height: 60,
-                            width: 60,
+                            height: 30,
+                            width: 40,
                           ),
                         ),
                       ),

@@ -140,9 +140,9 @@ class _ResetPasswrdState extends State<ResetPasswrd> {
                           ),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        enabledBorder: OutlineInputBorder(
+                        focusedBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
-                            color: Colors.grey,
+                            color: blueHighlightedTextColor,
                           ),
                           borderRadius: BorderRadius.circular(10.5),
                         ),
@@ -199,9 +199,9 @@ class _ResetPasswrdState extends State<ResetPasswrd> {
                           ),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        enabledBorder: OutlineInputBorder(
+                        focusedBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
-                            color: Colors.grey,
+                            color: blueHighlightedTextColor,
                           ),
                           borderRadius: BorderRadius.circular(10.5),
                         ),
@@ -214,6 +214,13 @@ class _ResetPasswrdState extends State<ResetPasswrd> {
                 ),
                 Center(
                   child: Button(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignIn()),
+                        );
+                      },
                       buttonWidth: 327,
                       text: 'Create New Password',
                       navigatorDestination: const SignIn(),

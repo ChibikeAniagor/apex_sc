@@ -53,7 +53,13 @@ class _GetStartedState extends State<GetStarted> {
             ],
           ),
           const SizedBox(height: 30),
-          const Button(
+          Button(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SplashScreen()),
+                );
+              },
               text: 'Get Started',
               navigatorDestination: SplashScreen(),
               color: buttonActiveColor)

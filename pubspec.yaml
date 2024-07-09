@@ -18,14 +18,34 @@ dependencies:
   numeric_keyboard: ^1.1.0
   country_picker: ^2.0.26
   csc_picker: ^0.2.7
+  provider: ^6.1.2
+  one_context: ^4.0.0
+  http: ^1.2.1
+  device_info_plus: ^10.1.0
+
   
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.10.0
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/logo.png" 
 
 flutter:
   uses-material-design: true
+
+  fonts:
+    - family: SFProDisplay
+      fonts:
+        - asset: assets/fonts/SFProDisplay-Regular.ttf
+        - asset: assets/fonts/SFProDisplay-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/SFProDisplay-Italic.ttf
+          style: italic
 
   assets: 
   - assets/

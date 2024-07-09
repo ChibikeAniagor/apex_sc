@@ -25,7 +25,7 @@ class _OnboardingScreen2State extends State<OnboardingScreen2> {
           const Text(
             "The fastest transaction \n       process only here",
             style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.w800, fontSize: 34),
+                color: Colors.black, fontWeight: FontWeight.w800, fontSize: 25),
           ),
           const Padding(
             padding: EdgeInsets.all(13.0),

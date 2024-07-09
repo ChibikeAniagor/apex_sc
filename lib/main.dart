@@ -1,3 +1,4 @@
+import 'package:apex_sc/providers/auth_provider.dart';
 import 'package:apex_sc/screens/create_pin.dart';
 import 'package:apex_sc/screens/get_started.dart';
 import 'package:apex_sc/screens/identity_screen.dart';
@@ -10,6 +11,8 @@ import 'package:apex_sc/screens/sign_up.dart';
 import 'package:apex_sc/screens/splash_screen.dart';
 import 'package:apex_sc/screens/verify_your_identity.dart';
 import 'package:flutter/material.dart';
+import 'package:one_context/one_context.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MainApp());
@@ -20,35 +23,42 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: {
-        //NB: screen names below are exactly as stated in the figma file.
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => AuthProvider())
+        ],
+        child: MaterialApp(
+          routes: {
+            //NB: screen names below are exactly as stated in the figma file.
 
-        // Splash Screen
-        "SplashScreen": (context) => const SplashScreen(),
-        // Onboarding Screens
-        "Onboarding": (context) => const OnboardingScreen(),
-        // //Sign in Screen
-        "Signin": (context) => const SignIn(),
-        // password recovery Screens
-        "Password Recovery": (context) => const PasswordRecovery(),
-        // reset your password
-        "Reset Password": (context) => const ResetPasswrd(),
-        // Sign Up Screen
-        "Signup": (context) => const SignUp(),
-        // OTP Authentication Screen
-        "Otp": (context) => const OtpScreen(),
-        // Id Screen (Identification Screen)
-        "Verify Id": (context) => const VerifyYourIdentity(),
-        //Reset your Password
-        "Identity Screen": (context) => const IdentityScreen(),
-        // Create Pin Screen
-        "Create pin": (context) => const CreatePin(),
-        //confirmation screen
-        "Confirmation Screen": (context) => const GetStarted(),
-      },
-      home: const SplashScreen(),
-      debugShowCheckedModeBanner: false,
-    );
+            // Splash Screen
+            "SplashScreen": (context) => const SplashScreen(),
+            // Onboarding Screens
+            "Onboarding": (context) => const OnboardingScreen(),
+            // //Sign in Screen
+            "Signin": (context) => const SignIn(),
+            // password recovery Screens
+            "Password Recovery": (context) => const PasswordRecovery(),
+            // reset your password
+            "Reset Password": (context) => const ResetPasswrd(),
+            // Sign Up Screen
+            "Signup": (context) => const SignUp(),
+            // OTP Authentication Screen
+            "Otp": (context) => const OtpScreen(),
+            // Id Screen (Identification Screen)
+            "Verify Id": (context) => const VerifyYourIdentity(),
+            //Reset your Password
+            "Identity Screen": (context) => const IdentityScreen(),
+            // Create Pin Screen
+            "Create pin": (context) => const CreatePin(),
+            //confirmation screen
+            "Confirmation Screen": (context) => const GetStarted(),
+          },
+          home: const SplashScreen(),
+          builder: OneContext().builder,
+          navigatorKey: OneContext().key,
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(fontFamily: "SFProDisplay"),
+        ));
   }
 }

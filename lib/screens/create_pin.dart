@@ -84,6 +84,12 @@ class _CreatePinState extends State<CreatePin> {
               const SizedBox(height: 20),
               Center(
                 child: Button(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SignIn()),
+                    );
+                  },
                   text: 'Confirm',
                   navigatorDestination: const SignIn(),
                   buttonWidth: 327,

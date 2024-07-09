@@ -4,14 +4,16 @@ import 'package:flutter/widgets.dart';
 
 class Button extends StatelessWidget {
   final String text;
-  final Widget navigatorDestination;
+  final Widget? navigatorDestination;
+  final Function() onPressed;
   final double? buttonWidth;
   final double? buttonHeight;
   final Color? color;
   const Button(
       {super.key,
       required this.text,
-      required this.navigatorDestination,
+      required this.onPressed,
+      this.navigatorDestination,
       this.buttonWidth,
       this.buttonHeight,
       required this.color});
@@ -23,12 +25,7 @@ class Button extends StatelessWidget {
       height: buttonHeight ?? 56,
       minWidth: buttonWidth ?? 327,
       color: color,
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => navigatorDestination),
-        );
-      },
+      onPressed: onPressed,
       child: Text(
         text,
         style: const TextStyle(

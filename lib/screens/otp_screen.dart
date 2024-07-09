@@ -138,9 +138,18 @@ class _OtpScreenState extends State<OtpScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
+              ),
               Center(
                 child: Button(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const IdentityScreen()),
+                    );
+                  },
                   text: 'Confirm',
                   navigatorDestination: const IdentityScreen(),
                   buttonWidth: 327,
@@ -149,15 +158,15 @@ class _OtpScreenState extends State<OtpScreen> {
                       : buttonInactiveColor,
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.09,
               ),
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
-                    width: MediaQuery.of(context).size.width * 0.95,
-                    height: MediaQuery.of(context).size.height * 0.5,
+                    width: MediaQuery.of(context).size.width * 1.3,
+                    height: MediaQuery.of(context).size.height * 1.0,
                     child: NumericKeyboard(
                       onKeyboardTap: _onKeyboardTap,
                       textColor: Colors.black,

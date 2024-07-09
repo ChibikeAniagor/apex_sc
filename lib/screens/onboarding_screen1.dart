@@ -31,7 +31,7 @@ class _OnboardingScreen1State extends State<OnboardingScreen1> {
           const Text(
             "Finanace App the safest \n      and most trusted",
             style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.w800, fontSize: 34),
+                color: Colors.black, fontWeight: FontWeight.w800, fontSize: 25),
           ),
           const Padding(
             padding: EdgeInsets.all(13.0),

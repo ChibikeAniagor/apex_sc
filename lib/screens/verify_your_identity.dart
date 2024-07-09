@@ -1,4 +1,5 @@
 import 'package:apex_sc/screens/otp_screen.dart';
+import 'package:apex_sc/screens/reset_passwrd.dart';
 import 'package:apex_sc/utils/color_utils.dart';
 import 'package:apex_sc/widgets/button.dart';
 import 'package:flutter/material.dart';
@@ -117,10 +118,17 @@ class _VerifyYourIdentityState extends State<VerifyYourIdentity> {
               ),
             ],
           ),
-          const Center(
+          Center(
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Button(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ResetPasswrd()),
+                    );
+                  },
                   buttonWidth: 327,
                   text: 'Continue',
                   navigatorDestination: OtpScreen(),

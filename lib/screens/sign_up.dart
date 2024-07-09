@@ -1,8 +1,10 @@
+import 'package:apex_sc/providers/auth_provider.dart';
 import 'package:apex_sc/screens/otp_screen.dart';
 import 'package:apex_sc/screens/sign_in.dart';
 import 'package:apex_sc/utils/color_utils.dart';
 import 'package:apex_sc/widgets/button.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -137,9 +139,9 @@ class _SignInState extends State<SignUp> {
                           ),
                         ),
                         labelStyle: const TextStyle(color: Colors.grey),
-                        border: OutlineInputBorder(
+                        focusedBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
-                            color: Colors.grey,
+                            color: blueHighlightedTextColor,
                           ),
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -157,6 +159,17 @@ class _SignInState extends State<SignUp> {
                   padding: const EdgeInsets.all(10.0),
                   child: Center(
                     child: Button(
+                        onPressed: () {
+                          context.read<AuthProvider>().signUp(
+                                email: creAccEmailTextEditingController.text
+                                    .trim(),
+                              );
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //       builder: (context) => const OtpScreen()),
+                          // );
+                        },
                         buttonWidth: 327,
                         text: 'Sign Up',
                         navigatorDestination: const OtpScreen(),
